@@ -3,19 +3,28 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0698174F20DB937D09430E75 /* libPods-DriverWelfare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47176E977ED1109C239C42C0 /* libPods-DriverWelfare.a */; };
+		7147C633235CF2EA003AEF8A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7147C632235CF2EA003AEF8A /* MapKit.framework */; };
+		7147C635235CF312003AEF8A /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7147C634235CF312003AEF8A /* PassKit.framework */; };
 		71E46F8723568AF500F575D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E46F8623568AF500F575D0 /* AppDelegate.swift */; };
 		71E46F8923568AF500F575D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E46F8823568AF500F575D0 /* ViewController.swift */; };
 		71E46F8C23568AF500F575D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71E46F8A23568AF500F575D0 /* Main.storyboard */; };
 		71E46F8F23568AF500F575D0 /* DriverWelfare.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 71E46F8D23568AF500F575D0 /* DriverWelfare.xcdatamodeld */; };
 		71E46F9123568AF600F575D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71E46F9023568AF600F575D0 /* Assets.xcassets */; };
 		71E46F9423568AF600F575D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71E46F9223568AF600F575D0 /* LaunchScreen.storyboard */; };
+		71E46F9C23569BCE00F575D0 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 71E46F9B23569BCE00F575D0 /* logo.png */; };
+		71E46F9E2356A31700F575D0 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E46F9D2356A31700F575D0 /* LoginController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		47176E977ED1109C239C42C0 /* libPods-DriverWelfare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DriverWelfare.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7147C631235CF2CA003AEF8A /* DriverWelfare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DriverWelfare.entitlements; sourceTree = "<group>"; };
+		7147C632235CF2EA003AEF8A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		7147C634235CF312003AEF8A /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		71E46F8323568AF500F575D0 /* DriverWelfare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DriverWelfare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71E46F8623568AF500F575D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71E46F8823568AF500F575D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +33,10 @@
 		71E46F9023568AF600F575D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71E46F9323568AF600F575D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		71E46F9523568AF600F575D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71E46F9B23569BCE00F575D0 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		71E46F9D2356A31700F575D0 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		BCC2EFACBCC41B3A35120B22 /* Pods-DriverWelfare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriverWelfare.release.xcconfig"; path = "Target Support Files/Pods-DriverWelfare/Pods-DriverWelfare.release.xcconfig"; sourceTree = "<group>"; };
+		EE54C23E6C5E04D96148F805 /* Pods-DriverWelfare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriverWelfare.debug.xcconfig"; path = "Target Support Files/Pods-DriverWelfare/Pods-DriverWelfare.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +44,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7147C635235CF312003AEF8A /* PassKit.framework in Frameworks */,
+				7147C633235CF2EA003AEF8A /* MapKit.framework in Frameworks */,
+				0698174F20DB937D09430E75 /* libPods-DriverWelfare.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5998E0AF414259ED2A074537 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7147C634235CF312003AEF8A /* PassKit.framework */,
+				7147C632235CF2EA003AEF8A /* MapKit.framework */,
+				47176E977ED1109C239C42C0 /* libPods-DriverWelfare.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		64009A9FA9954D9C7B649F6D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EE54C23E6C5E04D96148F805 /* Pods-DriverWelfare.debug.xcconfig */,
+				BCC2EFACBCC41B3A35120B22 /* Pods-DriverWelfare.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		71E46F7A23568AF500F575D0 = {
 			isa = PBXGroup;
 			children = (
 				71E46F8523568AF500F575D0 /* DriverWelfare */,
 				71E46F8423568AF500F575D0 /* Products */,
+				64009A9FA9954D9C7B649F6D /* Pods */,
+				5998E0AF414259ED2A074537 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,9 +93,12 @@
 		71E46F8523568AF500F575D0 /* DriverWelfare */ = {
 			isa = PBXGroup;
 			children = (
+				7147C631235CF2CA003AEF8A /* DriverWelfare.entitlements */,
+				71E46F9B23569BCE00F575D0 /* logo.png */,
 				71E46F8623568AF500F575D0 /* AppDelegate.swift */,
 				71E46F8823568AF500F575D0 /* ViewController.swift */,
 				71E46F8A23568AF500F575D0 /* Main.storyboard */,
+				71E46F9D2356A31700F575D0 /* LoginController.swift */,
 				71E46F9023568AF600F575D0 /* Assets.xcassets */,
 				71E46F9223568AF600F575D0 /* LaunchScreen.storyboard */,
 				71E46F9523568AF600F575D0 /* Info.plist */,
@@ -74,9 +114,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 71E46F9823568AF600F575D0 /* Build configuration list for PBXNativeTarget "DriverWelfare" */;
 			buildPhases = (
+				D36A74BF71D53353E83EC17E /* [CP] Check Pods Manifest.lock */,
 				71E46F7F23568AF500F575D0 /* Sources */,
 				71E46F8023568AF500F575D0 /* Frameworks */,
 				71E46F8123568AF500F575D0 /* Resources */,
+				B40B73B50EC8B2B6702B2066 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -125,6 +167,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71E46F9C23569BCE00F575D0 /* logo.png in Resources */,
 				71E46F9423568AF600F575D0 /* LaunchScreen.storyboard in Resources */,
 				71E46F9123568AF600F575D0 /* Assets.xcassets in Resources */,
 				71E46F8C23568AF500F575D0 /* Main.storyboard in Resources */,
@@ -133,12 +176,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B40B73B50EC8B2B6702B2066 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DriverWelfare/Pods-DriverWelfare-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DriverWelfare/Pods-DriverWelfare-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DriverWelfare/Pods-DriverWelfare-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D36A74BF71D53353E83EC17E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DriverWelfare-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		71E46F7F23568AF500F575D0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				71E46F8923568AF500F575D0 /* ViewController.swift in Sources */,
+				71E46F9E2356A31700F575D0 /* LoginController.swift in Sources */,
 				71E46F8F23568AF500F575D0 /* DriverWelfare.xcdatamodeld in Sources */,
 				71E46F8723568AF500F575D0 /* AppDelegate.swift in Sources */,
 			);
@@ -284,8 +370,11 @@
 		};
 		71E46F9923568AF600F575D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE54C23E6C5E04D96148F805 /* Pods-DriverWelfare.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DriverWelfare/DriverWelfare.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AK6XQV57LN;
 				INFOPLIST_FILE = DriverWelfare/Info.plist;
@@ -295,6 +384,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.andersoncalixto.driverwelfare.DriverWelfare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -302,8 +392,11 @@
 		};
 		71E46F9A23568AF600F575D0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BCC2EFACBCC41B3A35120B22 /* Pods-DriverWelfare.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DriverWelfare/DriverWelfare.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AK6XQV57LN;
 				INFOPLIST_FILE = DriverWelfare/Info.plist;
@@ -313,6 +406,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.andersoncalixto.driverwelfare.DriverWelfare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
