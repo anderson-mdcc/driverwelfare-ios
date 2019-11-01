@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		0698174F20DB937D09430E75 /* libPods-DriverWelfare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47176E977ED1109C239C42C0 /* libPods-DriverWelfare.a */; };
+		71334E4D236BB0FB00785F05 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71334E4C236BB0FB00785F05 /* Utils.swift */; };
 		7147C633235CF2EA003AEF8A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7147C632235CF2EA003AEF8A /* MapKit.framework */; };
 		7147C635235CF312003AEF8A /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7147C634235CF312003AEF8A /* PassKit.framework */; };
+		7178075E236791A5000DC605 /* GoogleMapsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178075D236791A5000DC605 /* GoogleMapsController.swift */; };
+		717807602367AA4C000DC605 /* RecommendationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178075F2367AA4C000DC605 /* RecommendationsController.swift */; };
 		71E46F8723568AF500F575D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E46F8623568AF500F575D0 /* AppDelegate.swift */; };
 		71E46F8923568AF500F575D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E46F8823568AF500F575D0 /* ViewController.swift */; };
 		71E46F8C23568AF500F575D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71E46F8A23568AF500F575D0 /* Main.storyboard */; };
@@ -22,9 +25,13 @@
 
 /* Begin PBXFileReference section */
 		47176E977ED1109C239C42C0 /* libPods-DriverWelfare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DriverWelfare.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		71334E4C236BB0FB00785F05 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		7147C631235CF2CA003AEF8A /* DriverWelfare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DriverWelfare.entitlements; sourceTree = "<group>"; };
 		7147C632235CF2EA003AEF8A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7147C634235CF312003AEF8A /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
+		7178075D236791A5000DC605 /* GoogleMapsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsController.swift; sourceTree = "<group>"; };
+		7178075F2367AA4C000DC605 /* RecommendationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsController.swift; sourceTree = "<group>"; };
+		717807612367B285000DC605 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		71E46F8323568AF500F575D0 /* DriverWelfare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DriverWelfare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71E46F8623568AF500F575D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71E46F8823568AF500F575D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +63,7 @@
 		5998E0AF414259ED2A074537 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				717807612367B285000DC605 /* CoreLocation.framework */,
 				7147C634235CF312003AEF8A /* PassKit.framework */,
 				7147C632235CF2EA003AEF8A /* MapKit.framework */,
 				47176E977ED1109C239C42C0 /* libPods-DriverWelfare.a */,
@@ -97,12 +105,15 @@
 				71E46F9B23569BCE00F575D0 /* logo.png */,
 				71E46F8623568AF500F575D0 /* AppDelegate.swift */,
 				71E46F8823568AF500F575D0 /* ViewController.swift */,
+				71334E4C236BB0FB00785F05 /* Utils.swift */,
 				71E46F8A23568AF500F575D0 /* Main.storyboard */,
+				7178075F2367AA4C000DC605 /* RecommendationsController.swift */,
 				71E46F9D2356A31700F575D0 /* LoginController.swift */,
 				71E46F9023568AF600F575D0 /* Assets.xcassets */,
 				71E46F9223568AF600F575D0 /* LaunchScreen.storyboard */,
 				71E46F9523568AF600F575D0 /* Info.plist */,
 				71E46F8D23568AF500F575D0 /* DriverWelfare.xcdatamodeld */,
+				7178075D236791A5000DC605 /* GoogleMapsController.swift */,
 			);
 			path = DriverWelfare;
 			sourceTree = "<group>";
@@ -225,7 +236,10 @@
 			files = (
 				71E46F8923568AF500F575D0 /* ViewController.swift in Sources */,
 				71E46F9E2356A31700F575D0 /* LoginController.swift in Sources */,
+				7178075E236791A5000DC605 /* GoogleMapsController.swift in Sources */,
+				71334E4D236BB0FB00785F05 /* Utils.swift in Sources */,
 				71E46F8F23568AF500F575D0 /* DriverWelfare.xcdatamodeld in Sources */,
+				717807602367AA4C000DC605 /* RecommendationsController.swift in Sources */,
 				71E46F8723568AF500F575D0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
