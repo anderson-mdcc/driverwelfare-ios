@@ -11,10 +11,13 @@ import UIKit
 import GooglePlaces
 import CoreLocation
 import AVFoundation
+import CoreData
 
 class RecommendationsController : UIViewController, CLLocationManagerDelegate {
     var placesClient: GMSPlacesClient!
     var turno = Turno.MANHA
+    var bom = "Boa"
+    var nome:String?
 
     // Add a pair of UILabels in Interface Builder, and connect the outlets to these variables.
     @IBOutlet var infoTextView:UITextView!
@@ -24,23 +27,40 @@ class RecommendationsController : UIViewController, CLLocationManagerDelegate {
     var speechSynthesizer = AVSpeechSynthesizer()
 
     override func viewDidLoad() {
-        super.viewDidLoad()
         infoTextView.text = ""
+        nameLabel.text = ""
+        addressLabel.text = ""
+        super.viewDidLoad()
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        do {
+            let result = try managedContext.fetch(fetchRequest)
+            // se existir usuario salvo, esta logado
+            if (result.count > 0) {
+                let loggedUser = result[0] as! User
+                nome = loggedUser.name
+                //let vc = SettingsController()
+                //vc.loggedUserLabel.text = nome
 
-        //let hour = Calendar.current.component(.hour, from: Date())
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateClock), userInfo: nil, repeats: true)
+                //let hour = Calendar.current.component(.hour, from: Date())
+                Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateClock), userInfo: nil, repeats: true)
 
-        locationManager = CLLocationManager()
-        locationManager?.delegate = self
-        locationManager?.requestAlwaysAuthorization()
-        placesClient = GMSPlacesClient.shared()
+                locationManager = CLLocationManager()
+                locationManager?.delegate = self
+                locationManager?.requestAlwaysAuthorization()
+                placesClient = GMSPlacesClient.shared()
+            }
+        } catch {
+            print("failed")
+        }
     }
     
     //Update clock every second
     @objc func updateClock() {
         //let now = NSDate()
         //print(now)
-        var bom = "Boa"
         let hour = Calendar.current.component(.hour, from: Date())
         if (hour >= 0 && hour < 6) {
             turno = Turno.MADRUGADA
@@ -54,7 +74,7 @@ class RecommendationsController : UIViewController, CLLocationManagerDelegate {
         }
         let strTurno:String = turno.description.lowercased()
         
-        infoTextView.text = "\(bom) \(strTurno), Fulano!\nAguarde por minhas recomendações e tenha uma boa viagem!"
+        infoTextView.text = "\(bom) \(strTurno), \(nome!)!\nAguarde por minhas recomendações e tenha uma boa viagem!"
     }
 
     // Add a UIButton in Interface Builder, and connect the action to this function.
@@ -85,9 +105,11 @@ class RecommendationsController : UIViewController, CLLocationManagerDelegate {
             let distanceDouble = Lugares.casa.distance(from: localizacao)
             print(distanceDouble)
             let distance: Int = Int(distanceDouble / 1000)
-            var strFala = "Boa noite Anderson, você está em casa!"
+            let strTurno:String = self.turno.description.lowercased()
+            let greets:String = "\(self.bom) \(strTurno) \(self.nome!)"
+            var strFala = "\(greets), você está em casa!"
             if (distanceDouble > 500) {
-                strFala = "Boa noite Anderson, você está em \(place.name!), \(distance) quilômetros de casa!"
+                strFala = "\(greets), você está em \(place.name!), \(distance) quilômetros de casa!"
             }
             // falar
             let speechUtterance: AVSpeechUtterance = AVSpeechUtterance(string: strFala)

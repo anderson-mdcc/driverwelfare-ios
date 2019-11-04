@@ -13,6 +13,9 @@
 		7147C635235CF312003AEF8A /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7147C634235CF312003AEF8A /* PassKit.framework */; };
 		7178075E236791A5000DC605 /* GoogleMapsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178075D236791A5000DC605 /* GoogleMapsController.swift */; };
 		717807602367AA4C000DC605 /* RecommendationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7178075F2367AA4C000DC605 /* RecommendationsController.swift */; };
+		71AB04EF236E37C800CB55E0 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AB04EE236E37C800CB55E0 /* SettingsController.swift */; };
+		71AB04F1236E41BC00CB55E0 /* TabsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AB04F0236E41BC00CB55E0 /* TabsController.swift */; };
+		71AB04F3236F569A00CB55E0 /* DecimalMinusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AB04F2236F569A00CB55E0 /* DecimalMinusTextField.swift */; };
 		71E46F8723568AF500F575D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E46F8623568AF500F575D0 /* AppDelegate.swift */; };
 		71E46F8923568AF500F575D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E46F8823568AF500F575D0 /* ViewController.swift */; };
 		71E46F8C23568AF500F575D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71E46F8A23568AF500F575D0 /* Main.storyboard */; };
@@ -32,6 +35,9 @@
 		7178075D236791A5000DC605 /* GoogleMapsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsController.swift; sourceTree = "<group>"; };
 		7178075F2367AA4C000DC605 /* RecommendationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsController.swift; sourceTree = "<group>"; };
 		717807612367B285000DC605 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		71AB04EE236E37C800CB55E0 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		71AB04F0236E41BC00CB55E0 /* TabsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsController.swift; sourceTree = "<group>"; };
+		71AB04F2236F569A00CB55E0 /* DecimalMinusTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalMinusTextField.swift; sourceTree = "<group>"; };
 		71E46F8323568AF500F575D0 /* DriverWelfare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DriverWelfare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71E46F8623568AF500F575D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71E46F8823568AF500F575D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -102,7 +108,10 @@
 			isa = PBXGroup;
 			children = (
 				7147C631235CF2CA003AEF8A /* DriverWelfare.entitlements */,
+				71AB04F2236F569A00CB55E0 /* DecimalMinusTextField.swift */,
 				71E46F9B23569BCE00F575D0 /* logo.png */,
+				71AB04EE236E37C800CB55E0 /* SettingsController.swift */,
+				71AB04F0236E41BC00CB55E0 /* TabsController.swift */,
 				71E46F8623568AF500F575D0 /* AppDelegate.swift */,
 				71E46F8823568AF500F575D0 /* ViewController.swift */,
 				71334E4C236BB0FB00785F05 /* Utils.swift */,
@@ -234,12 +243,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71AB04EF236E37C800CB55E0 /* SettingsController.swift in Sources */,
 				71E46F8923568AF500F575D0 /* ViewController.swift in Sources */,
 				71E46F9E2356A31700F575D0 /* LoginController.swift in Sources */,
 				7178075E236791A5000DC605 /* GoogleMapsController.swift in Sources */,
 				71334E4D236BB0FB00785F05 /* Utils.swift in Sources */,
 				71E46F8F23568AF500F575D0 /* DriverWelfare.xcdatamodeld in Sources */,
+				71AB04F1236E41BC00CB55E0 /* TabsController.swift in Sources */,
 				717807602367AA4C000DC605 /* RecommendationsController.swift in Sources */,
+				71AB04F3236F569A00CB55E0 /* DecimalMinusTextField.swift in Sources */,
 				71E46F8723568AF500F575D0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,7 +329,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -372,7 +384,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

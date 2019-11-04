@@ -8,9 +8,20 @@
 
 import UIKit
 import LocalAuthentication
+import CoreData
+import LocalAuthentication
 
 class LoginController: UIViewController, UITextFieldDelegate {
     
+    /*
+    // Keychain Configuration
+    struct KeychainConfiguration {
+      static let serviceName = "DriverWelfare"
+      static let accessGroup: String? = nil
+    }
+    var passwordItems: [KeychainPasswordItem] = []
+    */
+
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwdTextField: UITextField!
     @IBOutlet weak var errorMessage: UILabel!
@@ -20,6 +31,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
     let URLPOST:String = "/login"
     
     override func viewDidLoad() {
+
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
@@ -28,13 +40,25 @@ class LoginController: UIViewController, UITextFieldDelegate {
         view.addGestureRecognizer(tap)
         usernameTextField.delegate = self
         passwdTextField.delegate = self
-        
+
         //let localAuthenticationContext = LAContext()
         //var authError: NSError?
         //if !localAuthenticationContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
         //    labelSwitchTouchID.isHidden = true
         //    switchTouchID.isHidden = true
         //}
+        /*
+        if (checkLogado()) {
+            DispatchQueue.main.async {
+                let mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                let vc:UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "mainview")
+                self.present(vc, animated: true, completion: nil)
+            }
+        } else {
+
+            
+        }
+ */
     }
     
     @objc func dismissKeyboard() {
@@ -59,6 +83,44 @@ class LoginController: UIViewController, UITextFieldDelegate {
             }
         }
         return true
+    }
+    
+    func createData() {
+        print("createData()")
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let userEntity = NSEntityDescription.entity(forEntityName: "User", in: managedContext)!
+        let user = NSManagedObject(entity: userEntity, insertInto: managedContext)
+        user.setValue("anderson.calixto", forKey: "username")
+        user.setValue("123", forKey: "token")
+        user.setValue("Anderson Calixto", forKey: "name")
+        do {
+            try managedContext.save()
+            print("Saved")
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+        // leitura check
+        print("leitura data")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        do {
+            let result = try managedContext.fetch(fetchRequest)
+            for data in result as! [NSManagedObject] {
+                print("DATA: ")
+                print(data.value(forKey: "username") as! String)
+                print(data.value(forKey: "token") as! String)
+                print(data.value(forKey: "name") as! String)
+                //managedContext.delete(data)
+            }
+//            do {
+//                try managedContext.save()
+//            } catch {
+//                print(error)
+//            }
+        } catch {
+            print("failed")
+        }
     }
 }
 
@@ -107,22 +169,46 @@ extension LoginController {
             let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
             if let responseJSON = responseJSON as? [String: Any] {
                 print("JSON DATA: ")
+                var token:String?
+                var name:String?
                 for (k, v) in responseJSON {
                     print("\"\(k)\":")
                     print("\(v)\n")
-                    if (k == "token" && v as? String == "") {
-                        DispatchQueue.main.async {
-                            self.errorMessage.text = "Wrong user or password"
-                        }
-                    } else if (k == "token" && v as? String != "") {
-                        DispatchQueue.main.async {
-                            let mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-                            let vc:UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "mainview")
-                            self.present(vc, animated: true, completion: nil)
-                        }
+                    if (k == "token" && v as? String != "") {
+                        token = v as? String
+                    } else if (k == "name" && v as? String != "") {
+                        name = v as? String
                     }
                 }
                 print("\n")
+                if (token != nil) {
+                    // SALVAR
+                    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+                    let managedContext = appDelegate.persistentContainer.viewContext
+                    let userObj = NSEntityDescription.insertNewObject(forEntityName: "User", into: managedContext) as! User
+                    userObj.name = name
+                    userObj.token = token
+                    userObj.username = user
+                    do {
+                        try managedContext.save()
+                    } catch {
+                        print(error)
+                    }
+                    self.readAll()
+                    
+                    DispatchQueue.main.async {
+                        //let mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                        //let vc:UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "mainview")
+                        //self.present(vc, animated: true, completion: nil)
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "mainview")
+                        vc?.modalPresentationStyle = .fullScreen
+                        self.present(vc!, animated: true, completion: nil)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.errorMessage.text = "Wrong user or password"
+                    }
+                }
             }
         }
         task.resume()
@@ -179,5 +265,45 @@ extension LoginController {
             message = evaluatePolicyFailErrorMessageForLA(errorCode: errorCode)
         }
         return message
+    }
+    
+    func checkLogado() -> Bool {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return false }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        do {
+            let result = try managedContext.fetch(fetchRequest)
+            // se existir usuario salvo, esta logado
+            return result.count > 0
+        } catch {
+            print("failed")
+        }
+        return false
+    }
+    
+    func readAll() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        // leitura check
+        print("leitura data")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        do {
+            let result = try managedContext.fetch(fetchRequest)
+            for data in result as! [NSManagedObject] {
+                print("DATA: ")
+                print(data.value(forKey: "username") as! String)
+                print(data.value(forKey: "token") as! String)
+                print(data.value(forKey: "name") as! String)
+                //managedContext.delete(data)
+            }
+//            do {
+//                try managedContext.save()
+//            } catch {
+//                print(error)
+//            }
+        } catch {
+            print("failed")
+        }
     }
 }
