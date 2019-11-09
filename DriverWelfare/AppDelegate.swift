@@ -10,9 +10,10 @@ import UIKit
 import CoreData
 import GoogleMaps
 import GooglePlaces
+import CarPlay
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CPApplicationDelegate, CPMapTemplateDelegate {
 
     var window: UIWindow?
 
@@ -21,6 +22,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey("AIzaSyDekByMNalnpPHsgOS9oksoQxomby1imC8")
         GMSPlacesClient.provideAPIKey("AIzaSyDekByMNalnpPHsgOS9oksoQxomby1imC8")
         return true
+    }
+    
+    func application(_ application: UIApplication, didConnectCarInterfaceController interfaceController: CPInterfaceController, to window: CPWindow) {
+        print("[CARPLAY] CONNECTED TO CARPLAY!")
+        
+        window.rootViewController = GoogleMapsCarPlay()
+    }
+
+    func application(_ application: UIApplication, didDisconnectCarInterfaceController interfaceController: CPInterfaceController, from window: CPWindow) {
+      print("[CARPLAY] DISCONNECTED FROM CARPLAY!")
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

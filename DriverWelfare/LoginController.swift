@@ -21,25 +21,28 @@ class LoginController: UIViewController, UITextFieldDelegate {
     }
     var passwordItems: [KeychainPasswordItem] = []
     */
-
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwdTextField: UITextField!
     @IBOutlet weak var errorMessage: UILabel!
+    var constraintBottom:NSLayoutConstraint?
     //@IBOutlet weak var switchTouchID: UISwitch!
     //@IBOutlet weak var labelSwitchTouchID: UILabel!
     let URLBASE:String = "https://www.shellcode.com.br/driverwelfare/api"
     let URLPOST:String = "/login"
     
+    @IBOutlet var fullWidthConstraint: NSLayoutConstraint!
+    var halfWidthConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
 
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
         errorMessage.text = ""
+        super.viewDidLoad()
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
         usernameTextField.delegate = self
         passwdTextField.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown), name:UIResponder.keyboardWillShowNotification, object: nil);
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasHide), name:UIResponder.keyboardWillHideNotification, object: nil);
 
         //let localAuthenticationContext = LAContext()
         //var authError: NSError?
@@ -61,6 +64,82 @@ class LoginController: UIViewController, UITextFieldDelegate {
  */
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if UIDevice.current.orientation.isLandscape {
+            print("Landscape")
+            //fullWidthConstraint.multiplier = 16.0/1.0
+            //NSLayoutConstraint.activate([halfWidthConstraint])
+            //NSLayoutConstraint.deactivate([fullWidthConstraint])
+        } else {
+            print("Portrait")
+            //NSLayoutConstraint.activate([fullWidthConstraint])
+            //NSLayoutConstraint.deactivate([halfWidthConstraint])
+        }
+    }
+    
+    func animateViewMoving (up:Bool, moveValue :CGFloat){
+        let movementDuration:TimeInterval = 0.01
+        let movement:CGFloat = ( up ? -moveValue : moveValue)
+        UIView.beginAnimations( "animateView", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(movementDuration )
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
+    }
+    
+    @objc func keyboardWasShown(notification: NSNotification) {
+        print("keyboard shown")
+        
+        //
+        if (constraintBottom == nil) {
+            let info = notification.userInfo!
+            
+            let keyboardFrame: CGRect = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+
+            constraintBottom = NSLayoutConstraint(
+                item: self.view!,
+                attribute: NSLayoutConstraint.Attribute.bottom,
+                relatedBy: NSLayoutConstraint.Relation.equal,
+                toItem: errorMessage,
+                attribute: NSLayoutConstraint.Attribute.bottom,
+                multiplier: 1,
+                constant: keyboardFrame.size.height)
+
+            self.view.addConstraint(constraintBottom!)
+        }
+        
+        //self.view.addConstraint()
+        /*
+        self.animateViewMoving(up: true, moveValue: keyboardFrame.size.height)
+ */
+        //self.view.frame.origin.y = (keyboardFrame.size.height - self.view.safeAreaInsets.bottom) * -1
+        
+        //UIView.animateWithDuration(0.1, animations: { () -> Void in
+            //self.view.bottomConstraint.constant = keyboardFrame.size.height + 20
+        //})
+        /* UIView.animate(withDuration: 0.01, animations: { () -> Void in
+            self.view.frame.origin.y = (keyboardFrame.size.height - self.view.safeAreaInsets.bottom) * -1
+        })
+         */
+    }
+
+    @objc func keyboardWasHide(notification: NSNotification) {
+        if (constraintBottom != nil) {
+            self.view.removeConstraint(constraintBottom!)
+            constraintBottom = nil
+        }
+        /*
+        UIView.animate(withDuration: 0.01, animations: { () -> Void in
+            //self.view.frame.origin.y = 0
+//            let info = notification.userInfo!
+//            let keyboardFrame: CGRect = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+//            self.animateViewMoving(up: false, moveValue: keyboardFrame.size.height)
+        })
+        
+        */
+    }
+
+    // sumir teclado qdo clicar fora
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
@@ -71,6 +150,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         }
     }
 
+    // delegate ui text field
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         //textField.resignFirstResponder()
         if textField == usernameTextField {
@@ -84,7 +164,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
         }
         return true
     }
-    
+
+    /*
     func createData() {
         print("createData()")
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
@@ -121,6 +202,14 @@ class LoginController: UIViewController, UITextFieldDelegate {
         } catch {
             print("failed")
         }
+    }
+ */
+    
+}
+
+extension CGRect {
+    init(_ x:CGFloat, _ y:CGFloat, _ w:CGFloat, _ h:CGFloat) {
+        self.init(x:x, y:y, width:w, height:h)
     }
 }
 

@@ -12,7 +12,7 @@
         <attribute name="username" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="User" positionX="-5236.609375" positionY="-2498.390625" width="128" height="88"/>
         <element name="Address" positionX="-4967.67578125" positionY="-2710.8359375" width="128" height="103"/>
+        <element name="User" positionX="-5236.609375" positionY="-2498.390625" width="128" height="88"/>
     </elements>
 </model>

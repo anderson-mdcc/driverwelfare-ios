@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0698174F20DB937D09430E75 /* libPods-DriverWelfare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47176E977ED1109C239C42C0 /* libPods-DriverWelfare.a */; };
+		71051620237250E500BAAF4B /* CarPlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7105161F237250E500BAAF4B /* CarPlay.framework */; };
+		71051623237252A500BAAF4B /* GoogleMapsCarPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71051622237252A500BAAF4B /* GoogleMapsCarPlay.swift */; };
 		71334E4D236BB0FB00785F05 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71334E4C236BB0FB00785F05 /* Utils.swift */; };
 		7147C633235CF2EA003AEF8A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7147C632235CF2EA003AEF8A /* MapKit.framework */; };
 		7147C635235CF312003AEF8A /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7147C634235CF312003AEF8A /* PassKit.framework */; };
@@ -28,6 +30,8 @@
 
 /* Begin PBXFileReference section */
 		47176E977ED1109C239C42C0 /* libPods-DriverWelfare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DriverWelfare.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7105161F237250E500BAAF4B /* CarPlay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CarPlay.framework; path = System/Library/Frameworks/CarPlay.framework; sourceTree = SDKROOT; };
+		71051622237252A500BAAF4B /* GoogleMapsCarPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsCarPlay.swift; sourceTree = "<group>"; };
 		71334E4C236BB0FB00785F05 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		7147C631235CF2CA003AEF8A /* DriverWelfare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DriverWelfare.entitlements; sourceTree = "<group>"; };
 		7147C632235CF2EA003AEF8A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -58,6 +62,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7147C635235CF312003AEF8A /* PassKit.framework in Frameworks */,
+				71051620237250E500BAAF4B /* CarPlay.framework in Frameworks */,
 				7147C633235CF2EA003AEF8A /* MapKit.framework in Frameworks */,
 				0698174F20DB937D09430E75 /* libPods-DriverWelfare.a in Frameworks */,
 			);
@@ -69,6 +74,7 @@
 		5998E0AF414259ED2A074537 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7105161F237250E500BAAF4B /* CarPlay.framework */,
 				717807612367B285000DC605 /* CoreLocation.framework */,
 				7147C634235CF312003AEF8A /* PassKit.framework */,
 				7147C632235CF2EA003AEF8A /* MapKit.framework */,
@@ -84,6 +90,14 @@
 				BCC2EFACBCC41B3A35120B22 /* Pods-DriverWelfare.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		710516212372529100BAAF4B /* CarPlay */ = {
+			isa = PBXGroup;
+			children = (
+				71051622237252A500BAAF4B /* GoogleMapsCarPlay.swift */,
+			);
+			path = CarPlay;
 			sourceTree = "<group>";
 		};
 		71E46F7A23568AF500F575D0 = {
@@ -123,6 +137,7 @@
 				71E46F9523568AF600F575D0 /* Info.plist */,
 				71E46F8D23568AF500F575D0 /* DriverWelfare.xcdatamodeld */,
 				7178075D236791A5000DC605 /* GoogleMapsController.swift */,
+				710516212372529100BAAF4B /* CarPlay */,
 			);
 			path = DriverWelfare;
 			sourceTree = "<group>";
@@ -250,6 +265,7 @@
 				71334E4D236BB0FB00785F05 /* Utils.swift in Sources */,
 				71E46F8F23568AF500F575D0 /* DriverWelfare.xcdatamodeld in Sources */,
 				71AB04F1236E41BC00CB55E0 /* TabsController.swift in Sources */,
+				71051623237252A500BAAF4B /* GoogleMapsCarPlay.swift in Sources */,
 				717807602367AA4C000DC605 /* RecommendationsController.swift in Sources */,
 				71AB04F3236F569A00CB55E0 /* DecimalMinusTextField.swift in Sources */,
 				71E46F8723568AF500F575D0 /* AppDelegate.swift in Sources */,
