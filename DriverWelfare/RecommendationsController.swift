@@ -18,6 +18,7 @@ class RecommendationsController : UIViewController, CLLocationManagerDelegate {
     var fromMicButton: UIButton!
     
     var labelQuestion: UILabel!
+    var labelQuestion2: UILabel!
     var labelHelp: UILabel!
     var labelHelpConclusion: UILabel!
     
@@ -70,10 +71,15 @@ class RecommendationsController : UIViewController, CLLocationManagerDelegate {
                 sub = "184943600bbb498a880676f74d37a04a"
                 region = "westus"
                 
-                labelQuestion = UILabel(frame: CGRect(x: 50, y: 50, width: 300, height: 200))
+                labelQuestion = UILabel(frame: CGRect(x: 50, y: 0, width: 300, height: 200))
                 labelQuestion.textColor = UIColor.black
                 labelQuestion.lineBreakMode = .byWordWrapping
                 labelQuestion.numberOfLines = 0
+                
+                labelQuestion2 = UILabel(frame: CGRect(x: 50, y: 50, width: 300, height: 200))
+                labelQuestion2.textColor = UIColor.black
+                labelQuestion2.lineBreakMode = .byWordWrapping
+                labelQuestion2.numberOfLines = 0
                 
                 labelHelp = UILabel(frame: CGRect(x: 50, y: 100, width: 300, height: 200))
                 labelHelp.textColor = UIColor.blue
@@ -126,6 +132,8 @@ class RecommendationsController : UIViewController, CLLocationManagerDelegate {
     
     func routineLocation(){
         getCurrentPlace()
+        self.labelQuestion2.text = "gostaria de uma recomendação de restaurante?"
+        //routineStart()
     }
     
     func routineStart(){
