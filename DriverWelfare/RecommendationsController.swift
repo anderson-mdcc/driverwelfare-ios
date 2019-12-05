@@ -582,12 +582,14 @@ class RecommendationsController : UIViewController, CLLocationManagerDelegate {
             self.latitude = String(place.coordinate.latitude)
             self.longitude = String(place.coordinate.longitude)
             
-            var localizacaoCasa = UserDefaults.standard.dictionary(forKey: "localizacaoCasa") as? [String: String] ?? ["desc": "","latitude": "", "longitude": ""]
+            var localizacaoCasa = UserDefaults.standard.dictionary(forKey: "localizacaoCasa") ?? ["desc": "","latitude": Double(0), "longitude": Double(0)]
             
-            let latStr = localizacaoCasa["latitude"] ?? ""
-            let lonStr = localizacaoCasa["longitude"] ?? ""
-            let lat: Double? = Double(latStr)
-            let lon: Double? = Double(lonStr)
+            //let latStr = localizacaoCasa["latitude"] ?? ""
+            //let lonStr = localizacaoCasa["longitude"] ?? ""
+            //let lat: Double? = Double(latStr)
+            //let lon: Double? = Double(lonStr)
+            let lat: Double? = localizacaoCasa["latitude"] as? Double
+            let lon: Double? = localizacaoCasa["longitude"] as? Double
             
             let casa = CLLocation(latitude: lat ?? 0, longitude: lon ?? 0)
             let distanceDouble = casa.distance(from: self.localizacao)
@@ -600,7 +602,7 @@ class RecommendationsController : UIViewController, CLLocationManagerDelegate {
             var strFala = "\(greets), você está em casa!"
             self.labelQuestion.text = strFala
             if (distanceDouble > 500) {
-                strFala = "\(greets), você está em \(place.name!), \(distance) quilômetros de casa!"
+                strFala = "\(greets), você está em \(place.name!), \(Int(distance)) quilômetros de casa!"
                 self.labelQuestion.text = strFala
             }
             self.speak(text: strFala)
