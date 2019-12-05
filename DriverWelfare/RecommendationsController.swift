@@ -373,12 +373,11 @@ class RecommendationsController : UIViewController, CLLocationManagerDelegate {
     }
     
     func checkLunchTime(hour: Int, minute: Int){
-        var lunchTime: String = self.getLunchTime()
-        let lunchTimeArr = lunchTime.components(separatedBy: ":")
+        var lunchTime = self.getLunchTime()
+        var lunchTimeHour: Int = lunchTime["hora"] ?? 0
+        var lunchTimeMinute: Int = lunchTime["minuto"] ?? 0
+        var lunchTimeMargin: Int = self.getLunchTimeMargin()
         
-        var lunchTimeHour: Int = Int(lunchTimeArr[0]) ?? 0
-        var lunchTimeMinute: Int = Int(lunchTimeArr[1]) ?? 0
-        var lunchTimeMargin: Int = Int(self.getLunchTimeMargin()) ?? 0
         var lunchTimeHourWithMargin:Int = lunchTimeHour
         var lunchTimeMinuteWithMargin:Int = lunchTimeMinute
         if(lunchTimeMargin > 60){
@@ -407,29 +406,28 @@ class RecommendationsController : UIViewController, CLLocationManagerDelegate {
         self.checkIsNow()
         
     }
-    func getLunchTime() -> String{
-        return "03:00"
+    func getLunchTime() -> [String: Int]{
+        return UserDefaults.standard.dictionary(forKey: "horaAlmoco") as? [String: Int] ?? ["hora": 12, "minuto": 0]
     }
-    func getLunchTimeMargin() -> String{
-        return "30"
+
+    func getSleepTime() -> [String: Int]{
+        return UserDefaults.standard.dictionary(forKey: "horaDormir") as? [String: Int] ?? ["hora": 22, "minuto": 0]
     }
-    func getSleepTime() -> String{
-        return "04:00"
+    func getLunchTimeMargin() -> Int{
+        return UserDefaults.standard.object(forKey: "margemAlmoco") as? Int ?? 30
     }
-    func getSleepTimeMargin() -> String{
-        return "30"
+    func getSleepTimeMargin() -> Int{
+        return UserDefaults.standard.object(forKey: "margemDormir") as? Int ?? 30
     }
     
     func getDistanceMargin() -> String{
         return "500"
     }
     func checkSleepTime(hour: Int, minute: Int){
-        var sleepTime: String = self.getSleepTime()
-        let sleepTimeArr = sleepTime.components(separatedBy: ":")
-        
-        var sleepTimeHour: Int = Int(sleepTimeArr[0]) ?? 0
-        var sleepTimeMinute: Int = Int(sleepTimeArr[1]) ?? 0
-        var sleepTimeMargin: Int = Int(self.getSleepTimeMargin()) ?? 0
+        var sleepTime = self.getSleepTime()
+        var sleepTimeHour: Int = sleepTime["hora"] ?? 0
+        var sleepTimeMinute: Int = sleepTime["minuto"] ?? 0
+        var sleepTimeMargin: Int = self.getSleepTimeMargin()
         var sleepTimeHourWithMargin:Int = sleepTimeHour ?? 0
         var sleepTimeMinuteWithMargin:Int = sleepTimeMinute ?? 0
         if(sleepTimeMargin > 60){
@@ -578,7 +576,16 @@ class RecommendationsController : UIViewController, CLLocationManagerDelegate {
             self.localizacao = CLLocation(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
             self.latitude = String(place.coordinate.latitude)
             self.longitude = String(place.coordinate.longitude)
-            let distanceDouble = Lugares.casa.distance(from: self.localizacao)
+            
+            var localizacaoCasa = UserDefaults.standard.dictionary(forKey: "localizacaoCasa") as? [String: String] ?? ["desc": "","latitude": "", "longitude": ""]
+            
+            let latStr = localizacaoCasa["latitude"] ?? ""
+            let lonStr = localizacaoCasa["longitude"] ?? ""
+            let lat: Double? = Double(latStr)
+            let lon: Double? = Double(lonStr)
+            
+            let casa = CLLocation(latitude: lat ?? 0, longitude: lon ?? 0)
+            let distanceDouble = casa.distance(from: self.localizacao)
             print(distanceDouble)
             let distance: Int = Int(distanceDouble / 1000)
             let strTurno:String = self.turno.description.lowercased()
@@ -612,7 +619,17 @@ class RecommendationsController : UIViewController, CLLocationManagerDelegate {
             self.localizacao = CLLocation(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
             self.latitude = String(place.coordinate.latitude)
             self.longitude = String(place.coordinate.longitude)
-            let distanceDouble = Lugares.casa.distance(from: self.localizacao)
+            
+            var localizacaoCasa = UserDefaults.standard.dictionary(forKey: "localizacaoCasa") as? [String: String] ?? ["desc": "","latitude": "", "longitude": ""]
+            
+            let latStr = localizacaoCasa["latitude"] ?? ""
+            let lonStr = localizacaoCasa["longitude"] ?? ""
+            let lat: Double? = Double(latStr)
+            let lon: Double? = Double(lonStr)
+            
+            let casa = CLLocation(latitude: lat ?? 0, longitude: lon ?? 0)
+            let distanceDouble = casa.distance(from: self.localizacao)
+            
             let distance: Int = Int(distanceDouble / 1000)
             let distanceMargin: Double = Double(self.getDistanceMargin()) ?? 500.0
             if (distanceDouble > distanceMargin) {
