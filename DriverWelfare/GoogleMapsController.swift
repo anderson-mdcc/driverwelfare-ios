@@ -9,14 +9,19 @@
 import Foundation
 import UIKit
 import GoogleMaps
+import GooglePlaces
+
 import CoreLocation
+
 
 class GoogleMapsController: UIViewController, CLLocationManagerDelegate {
 
     var locationManager:CLLocationManager!
     let userLocation = GMSMarker()
     var mapView:GMSMapView?
-
+    
+    
+    
     override func loadView() {
       // Create a GMSCameraPosition that tells the map to display the
       // coordinate -33.86,151.20 at zoom level 6.
@@ -29,6 +34,21 @@ class GoogleMapsController: UIViewController, CLLocationManagerDelegate {
       userLocation.title = "Car location"
       userLocation.snippet = "..."
       userLocation.map = mapView!
+        
+      locationManager = CLLocationManager()
+      locationManager.desiredAccuracy = kCLLocationAccuracyBest
+      locationManager.requestAlwaysAuthorization()
+      locationManager.distanceFilter = 50
+      locationManager.startUpdatingLocation()
+      locationManager.delegate = self
+      // An array to hold the list of likely places.
+      var likelyPlaces: [GMSPlace] = []
+
+      // The currently selected place.
+      var selectedPlace: GMSPlace?
+
+      //placesClient = GMSPlacesClient.shared()
+        
       // Creates a marker in the center of the map.
 //      let marker = GMSMarker()
 //      //marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
