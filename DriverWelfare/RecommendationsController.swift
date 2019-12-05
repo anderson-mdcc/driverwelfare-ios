@@ -592,6 +592,7 @@ class RecommendationsController : UIViewController, CLLocationManagerDelegate {
                 self.labelQuestion.text = strFala
             }
             self.speak(text: strFala)
+            
 
           }
         }
@@ -726,11 +727,34 @@ class RecommendationsController : UIViewController, CLLocationManagerDelegate {
                                     self.buttonYes.isHidden = false
                                     self.buttonNot.isHidden = false
                                     self.labelHelpConclusion.text = "abrindo Opção \(index + 1)"
+                                    // Navigate from one coordinate to another
+                                    let lat: String!
+                                    let lon: String!
+                                    var q: String!
+                                    lat = self.latitude ?? ""
+                                    lon = self.longitude ?? ""
                                     
                                     if(self.action == "openRestaurants"){
-                                        self.action = ""
+                                        q = self.recommendationsList[(index + 1)]
                                     }else{
-                                        self.action = ""
+                                        q = self.recommendationsHotelsList[(index + 1)]
+                                    }
+                                    self.action = ""
+                                    
+                                    q = q.replacingOccurrences(of: " ", with: "+")
+                                    
+                                    let urlS = "http://maps.apple.com/?q=\(q ?? "")&sll=\(lat ?? ""),\(lon ?? "")&z=10&t=s&directionsmode=driving"
+                                    print(urlS)
+                                    if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!))
+                                    {
+                                        UIApplication.shared.openURL(NSURL(string:
+                                            "comgooglemaps://?saddr=&daddr=\(lat ?? ""),\(lon ?? "")&directionsmode=driving")! as URL)
+                                    } else
+                                    {
+                                        print("not have google maps")
+                                        if let url = URL(string: urlS) {
+                                            UIApplication.shared.openURL(url)
+                                        }
                                     }
                                 }
                                 return

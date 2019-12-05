@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16478B5D23994941001E6447 /* TimeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16478B5C23994940001E6447 /* TimeUtil.swift */; };
 		69A5B9FF1595965BA8432DE0 /* Pods_DriverWelfare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1886F8A0B4F6C126B1A7AF29 /* Pods_DriverWelfare.framework */; };
 		71051620237250E500BAAF4B /* CarPlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7105161F237250E500BAAF4B /* CarPlay.framework */; };
 		71051623237252A500BAAF4B /* GoogleMapsCarPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71051622237252A500BAAF4B /* GoogleMapsCarPlay.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		16478B5B23986CF2001E6447 /* MicrosoftCognitiveServicesSpeech-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MicrosoftCognitiveServicesSpeech-Bridging-Header.h"; sourceTree = "<group>"; };
+		16478B5C23994940001E6447 /* TimeUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeUtil.swift; path = util/TimeUtil.swift; sourceTree = "<group>"; };
 		1886F8A0B4F6C126B1A7AF29 /* Pods_DriverWelfare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriverWelfare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7105161F237250E500BAAF4B /* CarPlay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CarPlay.framework; path = System/Library/Frameworks/CarPlay.framework; sourceTree = SDKROOT; };
 		71051622237252A500BAAF4B /* GoogleMapsCarPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsCarPlay.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		71E46F8523568AF500F575D0 /* DriverWelfare */ = {
 			isa = PBXGroup;
 			children = (
+				16478B5C23994940001E6447 /* TimeUtil.swift */,
 				16478B5B23986CF2001E6447 /* MicrosoftCognitiveServicesSpeech-Bridging-Header.h */,
 				7147C631235CF2CA003AEF8A /* DriverWelfare.entitlements */,
 				71AB04F2236F569A00CB55E0 /* DecimalMinusTextField.swift */,
@@ -280,6 +283,7 @@
 			files = (
 				71AB04EF236E37C800CB55E0 /* SettingsController.swift in Sources */,
 				71E46F8923568AF500F575D0 /* ViewController.swift in Sources */,
+				16478B5D23994941001E6447 /* TimeUtil.swift in Sources */,
 				71E46F9E2356A31700F575D0 /* LoginController.swift in Sources */,
 				7178075E236791A5000DC605 /* GoogleMapsController.swift in Sources */,
 				71334E4D236BB0FB00785F05 /* Utils.swift in Sources */,
