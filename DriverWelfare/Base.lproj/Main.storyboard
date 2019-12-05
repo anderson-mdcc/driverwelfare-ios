@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -335,59 +335,10 @@
                     <view key="view" contentMode="scaleToFill" id="hSQ-Yl-R1J">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqb-s0-GeN">
-                                <rect key="frame" x="20" y="407.66666666666669" width="374" height="80.666666666666686"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <string key="text">Boa noite, Anderson!
-Aguarde por minhas recomendações e tenha uma boa viagem!</string>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título lugar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hZ-OD-aLd">
-                                <rect key="frame" x="20" y="496.33333333333331" width="374" height="20.999999999999943"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descrição lugar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVB-gC-g8v">
-                                <rect key="frame" x="20" y="525.33333333333337" width="374" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q1g-Lu-SQi">
-                                <rect key="frame" x="20" y="554.33333333333337" width="374" height="30"/>
-                                <state key="normal" title="Detectar localização atual"/>
-                                <connections>
-                                    <action selector="getCurrentPlace:" destination="Wux-a9-SYt" eventType="touchDown" id="5CQ-f7-XOz"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="OVB-gC-g8v" firstAttribute="top" secondItem="1hZ-OD-aLd" secondAttribute="bottom" constant="8" id="5WP-ar-uMd"/>
-                            <constraint firstItem="6KH-6f-Kn3" firstAttribute="trailing" secondItem="uqb-s0-GeN" secondAttribute="trailing" constant="20" id="8Mt-yL-nmv"/>
-                            <constraint firstItem="6KH-6f-Kn3" firstAttribute="trailing" secondItem="OVB-gC-g8v" secondAttribute="trailing" constant="20" id="CqV-PG-r9L"/>
-                            <constraint firstItem="uqb-s0-GeN" firstAttribute="centerY" secondItem="hSQ-Yl-R1J" secondAttribute="centerY" id="H7i-92-Ue1"/>
-                            <constraint firstItem="1hZ-OD-aLd" firstAttribute="top" secondItem="uqb-s0-GeN" secondAttribute="bottom" constant="8" id="Q8Z-1U-DNP"/>
-                            <constraint firstItem="q1g-Lu-SQi" firstAttribute="leading" secondItem="6KH-6f-Kn3" secondAttribute="leading" constant="20" id="Tba-SJ-tAZ"/>
-                            <constraint firstItem="6KH-6f-Kn3" firstAttribute="trailing" secondItem="q1g-Lu-SQi" secondAttribute="trailing" constant="20" id="Xth-vn-ljX"/>
-                            <constraint firstItem="q1g-Lu-SQi" firstAttribute="top" secondItem="OVB-gC-g8v" secondAttribute="bottom" constant="8" id="fcc-BT-PN2"/>
-                            <constraint firstItem="uqb-s0-GeN" firstAttribute="leading" secondItem="6KH-6f-Kn3" secondAttribute="leading" constant="20" id="qKv-hH-VKO"/>
-                            <constraint firstItem="OVB-gC-g8v" firstAttribute="leading" secondItem="6KH-6f-Kn3" secondAttribute="leading" constant="20" id="tBi-PO-Fal"/>
-                            <constraint firstItem="6KH-6f-Kn3" firstAttribute="trailing" secondItem="1hZ-OD-aLd" secondAttribute="trailing" constant="20" id="vS6-B0-2XC"/>
-                            <constraint firstItem="1hZ-OD-aLd" firstAttribute="leading" secondItem="6KH-6f-Kn3" secondAttribute="leading" constant="20" id="xvP-RN-Gwa"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6KH-6f-Kn3"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Events" id="sAx-He-JXy" userLabel="Events"/>
-                    <connections>
-                        <outlet property="addressLabel" destination="OVB-gC-g8v" id="ZPB-su-YOa"/>
-                        <outlet property="infoTextView" destination="uqb-s0-GeN" id="hM5-3B-mwD"/>
-                        <outlet property="nameLabel" destination="1hZ-OD-aLd" id="Bvg-qi-wsw"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vb3-7C-vQC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

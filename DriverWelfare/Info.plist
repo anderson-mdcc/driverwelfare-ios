@@ -62,6 +62,8 @@
 	</array>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Show your location on the map</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Microphone is needed for speech recognition</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Show your location on the map</string>
 </dict>

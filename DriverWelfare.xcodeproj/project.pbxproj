@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0698174F20DB937D09430E75 /* libPods-DriverWelfare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47176E977ED1109C239C42C0 /* libPods-DriverWelfare.a */; };
+		69A5B9FF1595965BA8432DE0 /* Pods_DriverWelfare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1886F8A0B4F6C126B1A7AF29 /* Pods_DriverWelfare.framework */; };
 		71051620237250E500BAAF4B /* CarPlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7105161F237250E500BAAF4B /* CarPlay.framework */; };
 		71051623237252A500BAAF4B /* GoogleMapsCarPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71051622237252A500BAAF4B /* GoogleMapsCarPlay.swift */; };
 		71334E4D236BB0FB00785F05 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71334E4C236BB0FB00785F05 /* Utils.swift */; };
@@ -29,7 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		47176E977ED1109C239C42C0 /* libPods-DriverWelfare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DriverWelfare.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		16478B5B23986CF2001E6447 /* MicrosoftCognitiveServicesSpeech-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MicrosoftCognitiveServicesSpeech-Bridging-Header.h"; sourceTree = "<group>"; };
+		1886F8A0B4F6C126B1A7AF29 /* Pods_DriverWelfare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriverWelfare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7105161F237250E500BAAF4B /* CarPlay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CarPlay.framework; path = System/Library/Frameworks/CarPlay.framework; sourceTree = SDKROOT; };
 		71051622237252A500BAAF4B /* GoogleMapsCarPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsCarPlay.swift; sourceTree = "<group>"; };
 		71334E4C236BB0FB00785F05 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -64,7 +65,7 @@
 				7147C635235CF312003AEF8A /* PassKit.framework in Frameworks */,
 				71051620237250E500BAAF4B /* CarPlay.framework in Frameworks */,
 				7147C633235CF2EA003AEF8A /* MapKit.framework in Frameworks */,
-				0698174F20DB937D09430E75 /* libPods-DriverWelfare.a in Frameworks */,
+				69A5B9FF1595965BA8432DE0 /* Pods_DriverWelfare.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,7 +79,7 @@
 				717807612367B285000DC605 /* CoreLocation.framework */,
 				7147C634235CF312003AEF8A /* PassKit.framework */,
 				7147C632235CF2EA003AEF8A /* MapKit.framework */,
-				47176E977ED1109C239C42C0 /* libPods-DriverWelfare.a */,
+				1886F8A0B4F6C126B1A7AF29 /* Pods_DriverWelfare.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -121,6 +122,7 @@
 		71E46F8523568AF500F575D0 /* DriverWelfare */ = {
 			isa = PBXGroup;
 			children = (
+				16478B5B23986CF2001E6447 /* MicrosoftCognitiveServicesSpeech-Bridging-Header.h */,
 				7147C631235CF2CA003AEF8A /* DriverWelfare.entitlements */,
 				71AB04F2236F569A00CB55E0 /* DecimalMinusTextField.swift */,
 				71E46F9B23569BCE00F575D0 /* logo.png */,
@@ -154,6 +156,7 @@
 				71E46F8023568AF500F575D0 /* Frameworks */,
 				71E46F8123568AF500F575D0 /* Resources */,
 				B40B73B50EC8B2B6702B2066 /* [CP] Copy Pods Resources */,
+				E3ED31C024283E01C1806060 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -249,6 +252,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E3ED31C024283E01C1806060 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DriverWelfare/Pods-DriverWelfare-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DriverWelfare/Pods-DriverWelfare-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DriverWelfare/Pods-DriverWelfare-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -418,7 +438,7 @@
 				CODE_SIGN_ENTITLEMENTS = DriverWelfare/DriverWelfare.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AK6XQV57LN;
+				DEVELOPMENT_TEAM = 4QXNT6GDBA;
 				INFOPLIST_FILE = DriverWelfare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -427,6 +447,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.andersoncalixto.driverwelfare.DriverWelfare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "DriverWelfare/MicrosoftCognitiveServicesSpeech-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -440,7 +461,7 @@
 				CODE_SIGN_ENTITLEMENTS = DriverWelfare/DriverWelfare.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AK6XQV57LN;
+				DEVELOPMENT_TEAM = 4QXNT6GDBA;
 				INFOPLIST_FILE = DriverWelfare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -449,6 +470,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.andersoncalixto.driverwelfare.DriverWelfare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "DriverWelfare/MicrosoftCognitiveServicesSpeech-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

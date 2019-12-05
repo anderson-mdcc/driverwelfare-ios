@@ -1,25 +1,29 @@
 PODS:
-  - GoogleMaps (3.5.0):
-    - GoogleMaps/Maps (= 3.5.0)
-  - GoogleMaps/Base (3.5.0)
-  - GoogleMaps/Maps (3.5.0):
+  - GoogleMaps (3.6.0):
+    - GoogleMaps/Maps (= 3.6.0)
+  - GoogleMaps/Base (3.6.0)
+  - GoogleMaps/Maps (3.6.0):
     - GoogleMaps/Base
-  - GooglePlaces (3.5.0):
-    - GoogleMaps/Base (= 3.5.0)
+  - GooglePlaces (3.6.0):
+    - GoogleMaps/Base (= 3.6.0)
+  - MicrosoftCognitiveServicesSpeech-iOS (1.8.0)
 
 DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
+  - MicrosoftCognitiveServicesSpeech-iOS (~> 1.6)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - GoogleMaps
     - GooglePlaces
+    - MicrosoftCognitiveServicesSpeech-iOS
 
 SPEC CHECKSUMS:
-  GoogleMaps: 32ca02de09de357a10ac773f2c70f1986751392d
-  GooglePlaces: be6f19fe8aa6ff0b5bcccfa1b8805cc977ea1450
+  GoogleMaps: 82f8fe307193bb4de6ef6bf9e88f1d624b718f9d
+  GooglePlaces: 1b9d29cf3e164903d873600f511f42acdfe85294
+  MicrosoftCognitiveServicesSpeech-iOS: f9054c9e11dbe0ab1ba055c78729a62450795a8b
 
-PODFILE CHECKSUM: 1108e7993fb7979d5766bfa7f66a3f34bd7c77d8
+PODFILE CHECKSUM: 2c2bf6b3952d0fb3b9d4efa8e2236ff8863fe0ed
 
 COCOAPODS: 1.8.4
