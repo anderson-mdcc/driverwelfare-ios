@@ -442,7 +442,7 @@
 				CODE_SIGN_ENTITLEMENTS = DriverWelfare/DriverWelfare.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4QXNT6GDBA;
+				DEVELOPMENT_TEAM = AK6XQV57LN;
 				INFOPLIST_FILE = DriverWelfare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -465,7 +465,7 @@
 				CODE_SIGN_ENTITLEMENTS = DriverWelfare/DriverWelfare.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4QXNT6GDBA;
+				DEVELOPMENT_TEAM = AK6XQV57LN;
 				INFOPLIST_FILE = DriverWelfare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

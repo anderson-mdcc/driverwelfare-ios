@@ -38,8 +38,8 @@ class SettingsController : UIViewController {
     let geocoder = CLGeocoder()
     
     // valores padrao
-    var horaAlmoco:[String:Int]?
-    var horaDormir:[String:Int]?
+    var horaAlmoco:[String:Any]?
+    var horaDormir:[String:Any]?
     var margemAlmoco:Int?
     var margemDormir:Int?
     
@@ -86,15 +86,42 @@ class SettingsController : UIViewController {
             tfTrabalhoLatitude?.text = "\(localizacaoTrabalho!["latitude"] ?? "")"
             tfTrabalhoLongitude?.text = "\(localizacaoTrabalho!["longitude"] ?? "")"
         }
-        horaAlmoco = UserDefaults.standard.dictionary(forKey: "horaAlmoco") as? [String: Int]? ?? ["hora": 12, "minuto": 0]
-        horaDormir = UserDefaults.standard.dictionary(forKey: "horaDormir") as? [String: Int]? ?? ["hora": 22, "minuto": 0]
-        margemAlmoco = UserDefaults.standard.object(forKey: "margemAlmoco") as? Int ?? 30
-        margemDormir = UserDefaults.standard.object(forKey: "margemDormir") as? Int ?? 30
+        let horaAlmocoDefault:[String: Any]? = ["hora": 12, "minuto": 0]
+        let horaDormirDefault:[String: Any]? = ["hora": 22, "minuto": 0]
+        let horaAlmocoTmp:[String: Any]? = UserDefaults.standard.dictionary(forKey: "horaAlmoco")
+        let horaDormirTmp:[String: Any]? = UserDefaults.standard.dictionary(forKey: "horaDormir")
+        if let tmp = horaAlmocoTmp {
+            horaAlmoco = tmp
+        } else {
+            horaAlmoco = horaAlmocoDefault
+        }
+        if let tmp = horaDormirTmp {
+            horaDormir = tmp
+        } else {
+            horaDormir = horaDormirDefault
+        }
+        //horaAlmoco =  as? [String: Int]? ?? horaAlmocoDefault // as? [String: Int]? ?? ["hora": 12, "minuto": 0] as [String: Int]?
+        //horaDormir = UserDefaults.standard.dictionary(forKey: "horaDormir") as? [String: Int]? ?? horaDormirDefault // as? [String: Int]? ?? ["hora": 22, "minuto": 0] as [String: Int]?
+        let margemAlmocoTmp = UserDefaults.standard.object(forKey: "margemAlmoco")
+        if (margemAlmocoTmp == nil) {
+            margemAlmoco = 30
+        } else {
+            margemAlmoco = margemAlmocoTmp as? Int
+        }
+        let margemDormirTmp = UserDefaults.standard.object(forKey: "margemDormir")
+        if (margemDormirTmp == nil) {
+            margemDormir = 30
+        } else {
+            margemDormir = margemDormirTmp as? Int
+        }
+        
+        print(horaAlmoco!)
+        print(horaDormir!)
 
         stepperMargemAlmoco!.value = Double(margemAlmoco!)
         stepperMargemDormir!.value = Double(margemDormir!)
-        sliderHoraAlmoco!.value = TimeUtil.getTimePerc(hour: horaAlmoco!["hora"]!, minute: horaAlmoco!["minuto"]!)
-        sliderHoraDormir!.value = TimeUtil.getTimePerc(hour: horaDormir!["hora"]!, minute: horaDormir!["minuto"]!)
+        sliderHoraAlmoco!.value = TimeUtil.getTimePerc(hour: horaAlmoco!["hora"]! as! Int, minute: horaAlmoco!["minuto"]! as! Int)
+        sliderHoraDormir!.value = TimeUtil.getTimePerc(hour: horaDormir!["hora"]! as! Int, minute: horaDormir!["minuto"]! as! Int)
         refreshControls()
         
         // mostra interface
@@ -113,10 +140,10 @@ class SettingsController : UIViewController {
         if (localizacaoTrabalho != nil) {
             UserDefaults.standard.set(localizacaoTrabalho, forKey: "localizacaoTrabalho")
         }
-        UserDefaults.standard.set(horaAlmoco, forKey: "horaAlmoco")
-        UserDefaults.standard.set(horaDormir, forKey: "horaDormir")
-        UserDefaults.standard.set(margemAlmoco, forKey: "margemAlmoco")
-        UserDefaults.standard.set(margemDormir, forKey: "margemDormir")
+        UserDefaults.standard.set(horaAlmoco!, forKey: "horaAlmoco")
+        UserDefaults.standard.set(horaDormir!, forKey: "horaDormir")
+        UserDefaults.standard.set(margemAlmoco!, forKey: "margemAlmoco")
+        UserDefaults.standard.set(margemDormir!, forKey: "margemDormir")
     }
     
     func refreshControls() {

@@ -71,6 +71,7 @@ class RecommendationsController : UIViewController, CLLocationManagerDelegate {
                 let loggedUser = result[0] as! User
                 self.nome = loggedUser.name
 
+                updateClock()
                 Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateClock), userInfo: nil, repeats: true)
 
                 locationManager = CLLocationManager()
@@ -392,8 +393,11 @@ class RecommendationsController : UIViewController, CLLocationManagerDelegate {
         let now = Date()
         let time_today = calendar.date(
             bySettingHour: lunchTimeHour, minute: lunchTimeMinute, second: 0,of: now)!
+        // TODO: FIX
+        //let time_today_margin = calendar.date(
+        //    bySettingHour: lunchTimeHourWithMargin,minute: lunchTimeMinuteWithMargin,second: 0, of: now)!
         let time_today_margin = calendar.date(
-            bySettingHour: lunchTimeHourWithMargin,minute: lunchTimeMinuteWithMargin,second: 0,of: now)!
+            bySettingHour: 14, minute: 30,second: 0, of: now)!
         
         if now >= time_today && now <= time_today_margin && self.lunchTimeIsUsed == 0
         {
@@ -442,7 +446,8 @@ class RecommendationsController : UIViewController, CLLocationManagerDelegate {
         let nowSleep = Date()
         let time_today_sleep = calendarSleep.date(bySettingHour: sleepTimeHour, minute: sleepTimeMinute, second: 0, of: nowSleep)!
         
-        let time_today_margin_sleep = calendarSleep.date(bySettingHour: sleepTimeHourWithMargin, minute: sleepTimeMinuteWithMargin, second: 0, of: nowSleep)!
+        //let time_today_margin_sleep = calendarSleep.date(bySettingHour: sleepTimeHourWithMargin, minute: sleepTimeMinuteWithMargin, second: 0, of: nowSleep)!
+        let time_today_margin_sleep = calendarSleep.date(bySettingHour: 14, minute: 0, second: 0, of: nowSleep)!
         
         if nowSleep >= time_today_sleep && nowSleep <= time_today_margin_sleep && self.sleepTimeIsUsed == 0
         {
